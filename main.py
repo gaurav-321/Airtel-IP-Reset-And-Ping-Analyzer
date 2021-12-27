@@ -8,10 +8,13 @@ options = uc.ChromeOptions()
 options.headless = True
 browser = uc.Chrome(options=options)
 
+server1, ping_1 = "63.251.126.126", 80  # Server to ping and expected latency
+server2, ping_2 = '3.6.0.0', 35  # Server to ping and expected latency
+
 
 def get_ping():
-    ping_result = ping(target="63.251.126.126", count=30, timeout=2)
-    ping_result_2 = ping(target='3.6.0.0', count=30, timeout=2)
+    ping_result = ping(target=server1, count=30, timeout=2)
+    ping_result_2 = ping(target=server2, count=30, timeout=2)
     return ping_result.rtt_min_ms, ping_result_2.rtt_min_ms
 
 
@@ -39,7 +42,7 @@ def login():
 def reset_net():
     while True:
         ping_ms = get_my_current_info()
-        if float(ping_ms[0]) < 80 and float(ping_ms[1] < 40):
+        if float(ping_ms[0]) < ping_1 and float(ping_ms[1] < ping_2):
             print("Found Most Revelant ip")
             break
         browser.find_element(By.ID, "VLANID:1").clear()
