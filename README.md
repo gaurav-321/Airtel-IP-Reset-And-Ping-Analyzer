@@ -1,27 +1,38 @@
-# Paint Buddy In Python
+# Airtel IP Reset And Ping Analyzer
+This script allows the user to reset their internet connection by resetting the IP address of the router through its web interface.
 
-A simple python project to reset network in airtel fiber until u get a ip that gives best ping for the servers
+## Requirements
+- python 3.x
+- requests
+- selenium
+- pythonping
+- Chrome browser
+- Chrome webdriver
+## Installation
+Install the required packages:
 
----
-
-## How to setup
-
-Simply open up your terminal and type
+Copy code
+```
+pip install requests selenium pythonping
+```
+## Usage
+To use this script, modify the following lines to match your router's IP address, login credentials and ping servers:
 
 ```
-pip3 install -r requirements.txt
+browser.get("http://192.168.1.1")
+browser.find_element(By.ID, "Frm_Username").send_keys("admin")
+browser.find_element(By.ID, "Frm_Password").send_keys("admin")
+server1, ping_1 = "63.251.126.126", 80
+server2, ping_2 = '3.6.0.0', 35
 ```
-
-## To Run the Visualizer
+Then, run the script:
 
 ```
-python3 main.py
+python reset_ip.py
 ```
+The script will continuously reset the IP address of the router until a desirable IP is obtained (as determined by the latency of pings to the specified servers). The resulting IP, region, city and ping latencies will be printed to the console.
 
-## What is the Airtel Best Ip Finder?
-
-It is an open source paint automated tool used to reset fiber network until good ip is assigned.
-
-
-### This is a contributions for open source projects, if you are utilizing this project please give credit to my github Ordinary Pythoneer
-
+## Notes
+- This script was tested on a specific router with specific web interface elements. Modifications may be needed for different router models or interfaces.
+- The Chrome webdriver must be installed and added to the PATH for the script to work.
+- The script may need to be modified to work with other browsers besides Chrome.
