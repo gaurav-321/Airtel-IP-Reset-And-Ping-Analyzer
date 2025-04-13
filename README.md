@@ -4,30 +4,36 @@ This project automates resetting your Airtel router IP address through its web i
 
 ---
 
-## 📦 Features
-- Automated login and IP reset for routers via Selenium.
-- Ping-based latency checks to specific servers.
-- Continues resetting until optimal latency is achieved.
-- Logs IP, location, and ping data in real-time.
+## ✨ Description
+Automate the process of resetting your Airtel router's IP address and continuously ping specific servers to monitor network performance. This tool helps in identifying optimal IP addresses that offer the best latency, ensuring a smoother internet experience.
 
 ---
 
-## ⚙️ Requirements
+## 🚀 Features
+- **Automated Login:** Logs into your router's web interface using Selenium.
+- **Ping-Based Latency Checks:** Continuously pings specified servers to measure latency.
+- **Optimal IP Search:** Keeps resetting until an optimal IP with low latency is found.
+- **Real-Time Logging:** Tracks and logs IP, location, and ping data.
+
+---
+
+## 🛠️ Installation
+### Prerequisites
 - Python 3.x
 - Google Chrome browser
 - Chrome WebDriver (must be in your PATH)
 
-### Python Packages
-Install required dependencies:
+### Install Dependencies
+Install required Python packages by running:
 
 ```bash
-pip install -r requriements.txt
+pip install -r requirements.txt
 ```
 
 ---
 
-## 🚀 Usage
-1. **Modify Settings in `main.py`:**
+## 📦 Usage
+1. **Modify Settings:**
    Update the following lines in `main.py` to match your router's IP and credentials:
 
 ```python
@@ -45,39 +51,45 @@ python main.py
 ```
 
 3. **What It Does:**
-   - Logs into the router's web UI.
+   - Logs into your router's web interface.
    - Continuously resets the connection using VLAN switch.
    - Pings two servers and checks for low latency.
-   - Stops once a desirable IP/latency is found.
+   - Stops once an optimal IP/latency is found.
 
 ---
 
-## 📄 Example Output
+## 🧪 Tests
+This project includes basic tests to ensure that all dependencies are installed correctly. Run the following command to execute the tests:
+
+```bash
+pytest
 ```
-103.5.130.45    Maharashtra    Mumbai    (20.2, 31.1)
-Found Most Relevant IP
+
+Note: Ensure you have `pytest` installed and configured properly in your environment.
+
+---
+
+## 📁 Project Structure
+```
+Airtel_IP_Reset_And_Ping_Analyzer/
+├── main.py          # Main script to automate IP reset & ping.
+├── requirements.txt # List of all required Python packages.
+└── README.md        # Project documentation.
 ```
 
----
-
-## 🔧 Troubleshooting
-- This script is tailored to a specific router model and interface. You may need to inspect your router's HTML and adjust element IDs.
-- Make sure Chrome WebDriver matches your Chrome browser version.
-- Add WebDriver to your system PATH or provide full path.
+- `main.py`: Contains the logic for automating the router reset and latency check.
+- `requirements.txt`: Lists all dependencies that need to be installed.
+- `README.md`: This file.
 
 ---
 
-## 📁 Files
-| File               | Description                              |
-|--------------------|------------------------------------------|
-| `main.py`          | Main script to automate IP reset & ping. |
-| `requriements.txt` | List of all required Python packages.    |
-| `README.md`        | Project documentation.                   |
+## 🙌 Contributing
+Contributions are welcome! If you have any improvements, bug fixes, or suggestions, please fork this repository and submit a pull request. Contributions should follow the guidelines provided in the [CONTRIBUTING.md](https://github.com/gag3301v/Airtel_IP_Reset_And_Ping_Analyzer/blob/master/CONTRIBUTING.md) file.
 
 ---
 
-## 📜 License
-MIT License (or add your own).
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/gag3301v/Airtel_IP_Reset_And_Ping_Analyzer/blob/master/LICENSE) file for details.
 
 ---
 
